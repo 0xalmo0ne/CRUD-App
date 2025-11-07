@@ -17,3 +17,17 @@ h1 {
   opacity: 0.5;
   transition: 0.3s;
 }
+
+
+
+
+
+
+
+/*! Media Quary */
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}

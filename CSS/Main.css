@@ -1,0 +1,19 @@
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.mt-15 {
+  margin-top: 7rem !important;
+}
+
+h1 {
+  position: relative;
+  border-bottom: 2px solid;
+  width: 150px;
+  margin: auto;
+}
+
+.btn:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}

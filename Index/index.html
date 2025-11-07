@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/CSS/Main.css">
+  <link rel="stylesheet" href="../CSS/bootstrap-5.3.8-dist/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <title>CRUD</title>
+</head>
+<body>
+
+  <section class="mx-auto w-75 mt-15 shadow-lg rounded-4 p-5">
+    <div class="mx-auto">
+          <h1 class="text-center text-info fw-bolder fst-italic">
+      CRUD
+    </h1>
+    </div>
+    <div class="form-floating mb-3">
+  <input type="text" class="form-control border-0 border-bottom" id="ProudactName" placeholder="Proudact Name">
+  <label for="Proudact Name">Proudact Name:</label>
+</div>
+
+    <div class="form-floating mb-3">
+  <input type="number" class="form-control border-0 border-bottom" id="ProudactPrice" placeholder="Proudact Price">
+  <label for="Proudact Price">Proudact Price:</label>
+</div>
+
+    <div class="form-floating mb-3">
+  <input type="discri" class="form-control border-0 border-bottom" id="ProudactCategory" list="lista" placeholder="Proudact Category">
+  <label for="Proudact Category">Proudact Category:</label>
+  <datalist id="lista">
+    <option value="TV"></option>
+    <option value="Camera"></option>
+    <option value="Laptop"></option>
+    <option value="Mobile"></option>
+  </datalist>
+</div>
+
+    <div class="form-floating mb-3">
+  <textarea type="text" class="form-control border-0 border-bottom" id="ProudactDiscrption" placeholder="Proudact Discrption"></textarea>
+  <label for="Proudact Discrption">Proudact Discrption:</label>
+</div>
+
+    <div class="form-floating mb-3">
+  <input type="file" class="form-control border-0 border-bottom" id="ProudactImage" placeholder="Proudact Image">
+  <label for="Proudact Image">Proudact Image:</label>
+</div>
+
+<button type="button" onclick="addProduct();" class="btn btn-info text-white">Add Product</button>
+  </section>
+
+  <script src="../JS/Main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

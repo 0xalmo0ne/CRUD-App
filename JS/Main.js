@@ -4,10 +4,10 @@ var category= document.getElementById("ProudactCategory");
 var discrption= document.getElementById("ProudactDiscrption");
 var image = document.getElementById("ProudactImage");
 
-var productContainear = [];
+var productContainear;
 
 if (localStorage.getItem("products") === null) {
-  productContainear = null;
+  productContainear = [];
 } else {
   productContainear = JSON.parse(localStorage.getItem("products"));
          displayProduct()
@@ -35,11 +35,11 @@ function addProduct() {
 
 
 function clearForme() {
-  nameInput.value = null
-  price.value = null
-  category.value = null
-  discrption.value = null
-  image.value = null
+  nameInput.value = ""
+  price.value = ""
+  category.value = ""
+  discrption.value = ""
+  image.value = ""
 }
 
 function displayProduct() {

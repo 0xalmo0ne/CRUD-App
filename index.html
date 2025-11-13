@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <section class="mx-auto container  mt-15 shadow-lg rounded-4 p-5">
+  <section class="mx-auto container  mt-5 shadow-lg rounded-4 p-5">
     <div class="mx-auto">
           <h1 id="info" class="text-center text-info fw-bolder fst-italic">
       CRUD
@@ -47,7 +47,14 @@
   <label for="Proudact Image">Proudact Image:</label>
 </div>
 
-<button type="button" onclick="addProduct();" class="btn btn-info text-white">Add Product</button>
+<button type="button" onclick="addProduct();" class="btn btn-info text-white">
+  Add Product
+</button>
+
+    <div class="form-floating mb-3 mt-4">
+  <input onkeyup="SearchProudact();" class="form-control border-0 border-bottom" id="SearchProudact" placeholder="SearchProudact">
+  <label for="Proudact Image"> Search Proudact ....</label>
+</div>
   </section>
 
 

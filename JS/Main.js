@@ -3,6 +3,7 @@ var price= document.getElementById("ProudactPrice");
 var category= document.getElementById("ProudactCategory");
 var discrption= document.getElementById("ProudactDiscrption");
 var image = document.getElementById("ProudactImage");
+var searchInput = document.getElementById("SearchProudact");
 
 var productContainear;
 
@@ -74,4 +75,34 @@ function deletedProduct(deletedIndex) {
   productContainear.splice(deletedIndex,1)
   displayProduct()
   localStorage.setItem(`products`, JSON.stringify(productContainear));
+}
+
+
+function SearchProudact() {
+  var term = searchInput.value.toLowerCase();
+  var hambozo = "";
+  for (var i = 0; i < productContainear.length; i++) {
+    if (productContainear[ i ].code.toLowerCase().includes(term)) {
+      hambozo +=`<div class="col-md-2 col-sm-8 col-lg-3 mb-3">
+  <div class="mx-auto proudact mt-5 border border-2 rounded-3 shadow-lg py-2 px-1">
+<img src="./Image/zoro-roronoa-one-piece-5k-io.jpg" class="w-100 rounded-3 overflow-hidden" alt="">
+<h5 class="text-truncate"><span class="fw-bold">Name :</span>${productContainear[ i ].code}</h5>
+<h5 class="text-truncate"><span class="fw-bold">Price :</span>${productContainear[ i ].price}</h5>
+<p class="text-truncate"><span class="fs-5 fw-bold">Category :</span>${productContainear[ i ].category} </p>
+<p class="description text-truncate" ><span class="fw-bold">Discrption :</span>${productContainear[ i ].discrption}</p>
+<div class="d-grid gap-2 mt-3">
+      <button onclick="deletedProduct(${i})" type="button" class="btn btn-outline-danger btn-sm">
+      Delete
+        <i class="fa-solid fa-trash me-2"></i>
+      </button>
+      <button type="button" class="btn btn-outline-warning btn-sm">
+      Update
+        <i class="fa-solid fa-pen-to-square me-2"></i>
+      </button>
+    </div>
+  </div>
+  </div>`
+    }
+  }
+  document.getElementById("rowData").innerHTML = hambozo;
 }

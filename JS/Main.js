@@ -1,4 +1,6 @@
-var nameInput= document.getElementById("ProudactName");
+// * Get Elements
+
+var nameInput = document.getElementById("ProudactName");
 var price= document.getElementById("ProudactPrice");
 var category= document.getElementById("ProudactCategory");
 var discrption= document.getElementById("ProudactDiscrption");
@@ -14,12 +16,16 @@ var searchBar = document.getElementById("searchBar");
 
 var productContainear;
 
+// ^ Check Local Storage for Products
+
 if (localStorage.getItem("products") === null) {
   productContainear = [];
 } else {
   productContainear = JSON.parse(localStorage.getItem("products"));
          displayProduct()
 }
+
+// ^ Toast Function
 
 const Toast = Swal.mixin({
   toast: true,
@@ -33,33 +39,33 @@ const Toast = Swal.mixin({
   }
 });
 
+// ^ Add Proudact Function
 
-addBtn.addEventListener("click",
-function addProduct() {
+addBtn.addEventListener("click", function addProduct() {
   if (dontEmpty()) {
+    let reader = new FileReader();
+    reader.onload = function () {
       var proudact = {
-    code: nameInput.value,
-    price: price.value,
-    category:category.value,
-    discrption: discrption.value,
-    image: `image/${image.files[0].name}`,
+        code: nameInput.value,
+        price: price.value,
+        category: category.value,
+        discrption: discrption.value,
+        image: reader.result
+      };
+      productContainear.push(proudact);
+      localStorage.setItem(`products`, JSON.stringify(productContainear));
+      displayProduct();
+      clearForme();
+      Toast.fire({
+        icon: "success",
+        title: "تم اضافة منتج بنجاح"
+      });
+    };
+    reader.readAsDataURL(image.files[0]);
   }
-  productContainear.push(proudact);
-  clearForme()
-  displayProduct()
-  localStorage.setItem(`products`, JSON.stringify(productContainear));
-
-  console.log(productContainear);
-
-Toast.fire({
-  icon: "success",
-  title: "تم اضافة منتج بنجاح"
 });
-  }
-}
-);
 
-
+// ^ Validation Function
 
 function dontEmpty() {
    let state = true;
@@ -87,6 +93,7 @@ function dontEmpty() {
 return state;
 }
 
+// ! Clear Form Function
 
 function clearForme() {
   nameInput.value = ""
@@ -96,6 +103,7 @@ function clearForme() {
   image.value = ""
 }
 
+// & Display Proudact Function
 
 function displayProduct() {
   var cartoona = "";
@@ -123,6 +131,7 @@ function displayProduct() {
   document.getElementById("rowData").innerHTML = cartoona
 }
 
+// & Delete Proudact Function
 
 function deletedProduct(deletedIndex) {
   productContainear.splice(deletedIndex,1)
@@ -131,6 +140,7 @@ function deletedProduct(deletedIndex) {
 }
 
 
+// ! Search Proudact Function
 
 function SearchProudact() {
   var term = searchInput.value.toLowerCase();
@@ -164,6 +174,7 @@ function SearchProudact() {
 
 //^ هنا انا خليت الاندكس جلوبل عشان اعرف استخدمو اكتر من مرة
 var updateIndex;
+// & Set Form For Update Function
 
 function setFormForUpdate(i) {
   updateIndex = i;
@@ -175,6 +186,8 @@ function setFormForUpdate(i) {
   discrption.value = productContainear[ i ].discrption
   image.value = productContainear[ i ].image
 }
+
+// & Update Proudact Function
 
 updateBtn.addEventListener("click",
   function updateProduct() {
@@ -189,6 +202,8 @@ updateBtn.addEventListener("click",
     localStorage.setItem(`products`, JSON.stringify(productContainear));
   }
 );
+
+// ^ Name Input Validation Function
 // function inputNameValidation() {
 //   var nameRejex = /^[A-Z][a-z]{3,8}$/;
 

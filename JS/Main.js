@@ -141,7 +141,7 @@ function deletedProduct(deletedIndex) {
 
 // ! Search Product Function
 
-function SearchProduct() {
+function searchProductFunc() {
   var term = searchInput.value.toLowerCase();
   var hambozo = "";
   for (var i = 0; i < productContainear.length; i++) {

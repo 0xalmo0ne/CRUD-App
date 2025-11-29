@@ -1,11 +1,11 @@
 // * Get Elements
 
-var nameInput = document.getElementById("ProudactName");
-var price= document.getElementById("ProudactPrice");
-var category= document.getElementById("ProudactCategory");
-var discrption= document.getElementById("ProudactDiscrption");
-var image = document.getElementById("ProudactImage");
-var searchInput = document.getElementById("SearchProudact");
+var nameInput = document.getElementById("ProductName");
+var price= document.getElementById("ProductPrice");
+var category= document.getElementById("ProductCategory");
+var discrption= document.getElementById("ProductDiscrption");
+var image = document.getElementById("ProductImage");
+var searchInput = document.getElementById("SearchProduct");
 var addBtn = document.getElementById("addBtn");
 var updateBtn = document.getElementById("updateBtn");
 var valid = document.getElementById("valid");
@@ -39,7 +39,7 @@ const Toast = Swal.mixin({
   }
 });
 
-// ^ Add Proudact Function
+// ^ Add Product Function
 
 addBtn.addEventListener("click", function addProduct() {
   if (dontEmpty()) {

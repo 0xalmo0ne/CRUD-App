@@ -10,25 +10,29 @@
 </head>
 <body>
 
-  <section class="mx-auto container  mt-5 shadow-lg rounded-4 p-5">
+  <section class="mx-auto container mt-5 rounded-4 p-5 shadow-lg">
     <div class="mx-auto">
           <h1 id="info" class="text-center text-info fw-bolder fst-italic">
       CRUD
     </h1>
     </div>
     <div class="form-floating mb-3">
-  <input type="text" class="form-control border-0 border-bottom" id="ProudactName" placeholder="Proudact Name">
+  <input oninput="inputNameValidation()" type="text" class="form-control border-0 border-bottom" id="ProudactName" placeholder="Proudact Name">
   <label for="Proudact Name">Proudact Name:</label>
-</div>
+  <p id="valid" class="d-none alert alert-success mt-2">Succsess</p>
+  <p id="validx" class="d-none alert alert-danger mt-2">Proudact Name is empty</p>
+    </div>
 
     <div class="form-floating mb-3">
   <input type="number" class="form-control border-0 border-bottom" id="ProudactPrice" placeholder="Proudact Price">
   <label for="Proudact Price">Proudact Price:</label>
+   <p id="validp" class="d-none alert alert-danger mt-2">Proudact Price is empty</p>
 </div>
 
     <div class="form-floating mb-3">
   <input type="discri" class="form-control border-0 border-bottom" id="ProudactCategory" list="lista" placeholder="Proudact Category">
   <label for="Proudact Category">Proudact Category:</label>
+     <p id="validc" class="d-none alert alert-danger mt-2">Proudact Category is empty</p>
   <datalist id="lista">
     <option value="TV"></option>
     <option value="Camera"></option>
@@ -47,22 +51,28 @@
   <label for="Proudact Image">Proudact Image:</label>
 </div>
 
-<button type="button" onclick="addProduct();" class="btn btn-info text-white">
+<button id="addBtn" type="button"
+            class="btn btn-info text-white">
   Add Product
 </button>
+<button id="updateBtn" type="button" class="d-none btn btn-warning text-white">
+  Update Product
+</button>
+
 
     <div class="form-floating mb-3 mt-4">
   <input onkeyup="SearchProudact();" class="form-control border-0 border-bottom" id="SearchProudact" placeholder="SearchProudact">
   <label for="Proudact Image"> Search Proudact ....</label>
+  <p id="searchBar" class="d-none fs-4 text-danger text-center mt-3">Not Match</p>
 </div>
   </section>
-
-
+<div></div>
 <div class="container">
 <div id="rowData" class="row">
 </div>
 
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./JS/Main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

@@ -33,6 +33,10 @@ h1 {
   transition: 0.3s;
 }
 
+.proudact img {
+  height: 170px;
+  object-fit: contain;
+}
 
 
 

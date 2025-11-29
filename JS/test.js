@@ -1,4 +1,6 @@
 var inputName = document.getElementById('ProudactName');
+var addBtn = document.getElementById("addBtn");
+var updateBtn = document.getElementById("updateBtn");
 var SearchProudacts = document.getElementById("SearchProudact");
 
 var productContainear;
@@ -35,6 +37,9 @@ function displayProduct() {
       Delete
         <i class="fa-solid fa-trash me-2"></i>
       </button>
+      <button onclick="updateProductForm(${i});" type="button" class="btn btn-outline-warning btn-sm">
+        Update
+      </button>
     </div>
   </div>`
   }
@@ -62,6 +67,9 @@ function SearchProudact() {
       <button onclick="deletedProduct(${i})" type="button" class="btn btn-outline-danger btn-sm">
         Delete <i class="fa-solid fa-trash me-2"></i>
       </button>
+       <button onclick="updateProductForm(${i});" type="button" class="btn btn-outline-warning btn-sm">
+        Update
+      </button>
     </div>
   </div>
 </div>
@@ -69,4 +77,22 @@ function SearchProudact() {
     }
   }
   document.getElementById("rowData").innerHTML = hambozo;
+}
+
+
+var indexOf;
+
+function updateProductForm(i) {
+  indexOf = i;
+  addBtn.classList.add("d-none")
+  updateBtn.classList.remove("d-none")
+  inputName.value = productContainear[ i ].code
+}
+function updateProduct(indexOf) {
+  addBtn.classList.remove("d-none")
+  updateBtn.classList.add("d-none")
+  productContainear[ indexOf ].code = inputName.value;
+  displayProduct()
+  localStorage.setItem("product", JSON.stringify(productContainear));
+  clearForm
 }

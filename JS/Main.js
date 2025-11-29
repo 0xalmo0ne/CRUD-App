@@ -1,5 +1,4 @@
 // * Get Elements
-
 var nameInput = document.getElementById("ProductName");
 var price= document.getElementById("ProductPrice");
 var category= document.getElementById("ProductCategory");
@@ -140,9 +139,9 @@ function deletedProduct(deletedIndex) {
 }
 
 
-// ! Search Proudact Function
+// ! Search Product Function
 
-function SearchProudact() {
+function SearchProduct() {
   var term = searchInput.value.toLowerCase();
   var hambozo = "";
   for (var i = 0; i < productContainear.length; i++) {
